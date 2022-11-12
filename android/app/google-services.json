@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "297053217906",
+    "project_id": "peer-health-test",
+    "storage_bucket": "peer-health-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297053217906:android:0f1f25aa4c1530abec4eeb",
+        "android_client_info": {
+          "package_name": "com.peerhealthtest.peer_health_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297053217906-b2pqkkmor533rd95f4nvlgls4a7n0amh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtvdWY9F_6S21UXMux5DPUqHwPa1Hrvkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297053217906-b2pqkkmor533rd95f4nvlgls4a7n0amh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
