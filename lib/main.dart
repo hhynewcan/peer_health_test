@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:peer_health_test/Pages/BugReportOrSuggestions.dart';
+import 'package:peer_health_test/Pages/ChatPage.dart';
 import 'package:peer_health_test/Pages/ContactUs.dart';
 import 'package:peer_health_test/Pages/Homepage.dart';
 import 'package:peer_health_test/Pages/LicencesPage.dart';
@@ -129,6 +130,7 @@ class MyApp extends StatelessWidget {
           '/ContactPrairieHarmReduction': (BuildContext context) => ContactPrairieHarmReduction(),
           '/ContactHopeForWellnessHelpline': (BuildContext context) => ContactHopeForWellnessHelpline(),
           '/DoYouNeedASafePlaceToGo': (BuildContext context) => DoYouNeedASafePlaceToGo(),
+          '/ChatPage': (BuildContext context) => ChatPage(),
           '/About': (BuildContext context) => About(),
           '/QuizPage': (BuildContext context) => QuizPage(),
           '/WorkbookListPage': (BuildContext context) => WorkbookListPage(),

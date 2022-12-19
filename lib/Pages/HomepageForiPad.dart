@@ -54,7 +54,7 @@ class HomepageForiPad extends StatelessWidget {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => SocialNormsAndWorkbooks()));
                         },),
                         HomePageCardBig(iconPath: 'assets/icons/icons8-search-chat-100.png', description: "Mental Health Roadmap", press: (){
-                          Navigator.pushNamed(context, '/DoYouHaveAMentalHealthConcern');
+                          Navigator.pushNamed(context, '/ChatPage');
                         }),
                         HomePageCardBig(iconPath: 'assets/icons/icons8-settings-100.png', description: "Settings", press: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => UserSettings()));

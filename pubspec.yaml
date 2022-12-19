@@ -39,6 +39,7 @@ dependencies:
   shared_preferences: ^2.0.15
   provider: ^6.0.3
   device_info_plus: ^4.1.2
+  flutter_chat_ui: ^1.6.6
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +51,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.10.0
+  http:
 
 flutter_icons:
   android: true
