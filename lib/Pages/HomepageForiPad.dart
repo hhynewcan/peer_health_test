@@ -4,13 +4,25 @@ import 'package:peer_health_test/Pages/PamphletList.dart';
 import 'package:peer_health_test/Pages/UserSettings.dart';
 import 'package:peer_health_test/utilities/HomePageCardSmallForiPad.dart';
 import 'package:peer_health_test/utilities/HomepageCardBig.dart';
+import '../utilities/LoadUrl.dart';
 import 'SocialNormsAndWorkbooks.dart';
 
 // This homepage is made specifically for iPad because of different screen ratios
 class HomepageForiPad extends StatelessWidget {
+
+  final String _eventSiteURL = "https://students.usask.ca/health/wellness-workshops.php";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          actions: <Widget>[IconButton(onPressed: (){
+            Navigator.pushNamed(context, '/UserSettings');
+          },
+              icon: const Icon(Icons.settings,color: Colors.white,))],
+          automaticallyImplyLeading: false,
+          elevation: 0,
+        ),
         backgroundColor: usaskGreen,
         body: SafeArea(
           child: Column(
@@ -47,17 +59,17 @@ class HomepageForiPad extends StatelessWidget {
                     GridView.count(crossAxisCount: 2,
                       shrinkWrap: true,
                       children: <Widget>[
+                        HomePageCardBig(iconPath: 'assets/icons/icons8-settings-100.png', description: "Peer Health Events", press: (){
+                          loadUrl(_eventSiteURL);
+                        },),
+                        HomePageCardBig(iconPath: 'assets/icons/icons8-search-chat-100.png', description: "Mental Health Resources Helper", press: (){
+                          Navigator.pushNamed(context, '/ChatPage');
+                        }),
                         HomePageCardBig(iconPath: 'assets/icons/icons8-folded-booklet-100.png', description: 'Pamphlets', press: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => PamphletList()));
                         }),
                         HomePageCardBig(iconPath: 'assets/icons/icons8-study-100.png', description: "Social Norms & Workbooks", press: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => SocialNormsAndWorkbooks()));
-                        },),
-                        HomePageCardBig(iconPath: 'assets/icons/icons8-search-chat-100.png', description: "Mental Health Roadmap", press: (){
-                          Navigator.pushNamed(context, '/ChatPage');
-                        }),
-                        HomePageCardBig(iconPath: 'assets/icons/icons8-settings-100.png', description: "Settings", press: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => UserSettings()));
                         },),
                       ],
                     ),

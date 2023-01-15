@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:peer_health_test/utilities/LoadUrl.dart';
 
 // Card for link button
 class HomePageCardSmall extends StatelessWidget
@@ -22,8 +22,7 @@ class HomePageCardSmall extends StatelessWidget
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap:
-            _loadURL,
+          onTap: () => loadUrl(url),
           child: Container(
             decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
@@ -46,13 +45,5 @@ class HomePageCardSmall extends StatelessWidget
           )
         ),
         );
-  }
-
-  // Open the selected link
-  void _loadURL() async {
-    var uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
   }
 }

@@ -9,6 +9,7 @@ import 'package:peer_health_test/Pages/PamphletList.dart';
 import 'package:peer_health_test/MentalHealthRoadmapPages/DoYouHaveAMentalHealthConcern.dart';
 import 'package:peer_health_test/Pages/PamphletSettings.dart';
 import 'package:peer_health_test/Pages/QuizPage.dart';
+import 'package:peer_health_test/Pages/UserSettings.dart';
 import 'package:peer_health_test/Themes.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -122,7 +123,7 @@ class MyApp extends StatelessWidget {
           '/AreYouWorriedAboutSomeoneElse': (BuildContext context) => AreYouWorriedAboutSomeoneElse(),
           '/ContactStudentAffairsAndOutreachTeam': (BuildContext context) => ContactStudentAffairsAndOutreachTeam(),
           '/HaveAGreatDayAndBeWell': (BuildContext context) => HaveAGreatDayAndBeWell(),
-          '/AreYouExperiencingACrisisOrConcern': (BuildContext) => AreYouExperiencingACrisisOrConcern(),
+          '/AreYouExperiencingACrisisOrConcern': (BuildContext context) => AreYouExperiencingACrisisOrConcern(),
           '/IsYourCrisisInRelationToAbuseOrSexualAbuse': (BuildContext context) => IsYourCrisisInRelationToAbuseOrSexualAbuse(),
           '/DoYouNeedMentalHealthSupport': (BuildContext context) => DoYouNeedMentalHealthSupport(),
           '/ContactSaskatoonSexualAssaultCrisisCentre': (BuildContext context) => ContactSaskatoonSexualAssaultCrisisCentre(),
@@ -157,7 +158,8 @@ class MyApp extends StatelessWidget {
           '/ContactYWCASaskatoonCrisisShelterOrSaskatoonIntervalHouseOrTheLighthouseSaskatoon': (BuildContext context) => ContactYWCASaskatoonCrisisShelterOrSaskatoonIntervalHouseOrTheLighthouseSaskatoon(),
           '/IsYourCrisisRelatedToYourIdentityAsIndigenousAboriginalOrFirstNations': (BuildContext context) => IsYourCrisisRelatedToYourIdentityAsIndigenousAboriginalOrFirstNations(),
           '/Contact911OrRoyalUniversityHospitalOrCampusProtectiveServices': (BuildContext context) => Contact911OrRoyalUniversityHospitalOrCampusProtectiveServices(),
-          },
+          '/UserSettings': (BuildContext context) => UserSettings()
+        },
         );
       },
     );

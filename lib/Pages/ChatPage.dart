@@ -20,10 +20,15 @@ class _ChatPageState extends State<ChatPage> {
   List<types.Message> _messages = [];
   final _user = const types.User(id: 'User');
   final _server = const types.User(id: 'Server');
+  String _initialMessage = "Hi! I am a chatbot that can help you find the mental health resources you need in USask. You can ask me anything. Type 'Mental health roadmap' if you want a list of questions that can point you to the resources based on your situation instead.";
 
   @override
   Widget build(BuildContext context) {
+
+    _addInitialMessage();
+
     return Scaffold(
+      appBar: AppBar(title: const Text("Mental Health Resources Helper"),),
       body: Chat(theme: MyApp.isDarkMode ? DarkChatTheme() : DefaultChatTheme() ,messages: _messages, onSendPressed: _handleSendPressed, user: _user,),
     );
   }
@@ -82,5 +87,17 @@ class _ChatPageState extends State<ChatPage> {
   {
     http.Response response = await http.get(Uri.parse(url));
     return response.body;
+  }
+
+  void _addInitialMessage() {
+
+    final textMessage = types.TextMessage(
+      author: _server,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      id: randomString(),
+      text: _initialMessage,
+    );
+
+    _addMessage(textMessage);
   }
 }
