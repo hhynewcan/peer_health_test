@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_health_test/Pages/Homepage.dart';
 import 'package:peer_health_test/Pages/HomepageForiPad.dart';
 import '../Constants.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+
+import 'HomePageForWeb.dart';
 
 // The TermsOfServicesAndPrivacyPolicy page
 class TermsOfServicesAndPrivacyPolicy extends StatefulWidget {
@@ -92,7 +95,10 @@ class _TermsOfServicesAndPrivacyPolicyState extends State<TermsOfServicesAndPriv
   // Navigate to different homepages based on the device is iPad or not
   Future<void> toHomePage()
   async {
-    if (Platform.isAndroid)
+    if (kIsWeb){
+      Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) => HomepageForWeb(), transitionDuration: Duration.zero,),);
+    }
+    else if (Platform.isAndroid)
     {
       Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) => Homepage(), transitionDuration: Duration.zero,),);
     }

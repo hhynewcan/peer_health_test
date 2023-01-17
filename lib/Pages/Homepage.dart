@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_health_test/Constants.dart';
 import 'package:peer_health_test/Pages/PamphletList.dart';
-import 'package:peer_health_test/Pages/UserSettings.dart';
 import 'package:peer_health_test/utilities/HomepageCardBig.dart';
 import 'package:peer_health_test/utilities/HomepageCardSmall.dart';
 import '../utilities/LoadUrl.dart';
@@ -12,8 +12,20 @@ class Homepage extends StatelessWidget {
 
   final String _eventSiteURL = "https://students.usask.ca/health/wellness-workshops.php";
 
+
+
   @override
   Widget build(BuildContext context) {
+
+    final action = CupertinoActionSheet(
+      title: Text("Please select which helper tool to use"),
+      actions: [
+        CupertinoActionSheetAction(onPressed: () {Navigator.pop(context);Navigator.pushNamed(context, '/ChatPage');}, child: Text("Chatbot Helper Tool")),
+        CupertinoActionSheetAction(onPressed: () {Navigator.pop(context);Navigator.pushNamed(context, '/DoYouHaveAMentalHealthConcern');}, child: Text("Mental Health Resources Flowchart"))
+      ],
+      cancelButton: CupertinoActionSheetAction(onPressed: () {Navigator.pop(context);}, child: Text("Cancel", style: TextStyle(color: Colors.red),),),
+    );
+
     return Scaffold(
         appBar: AppBar(
           actions: <Widget>[IconButton(onPressed: (){
@@ -62,8 +74,8 @@ class Homepage extends StatelessWidget {
                         HomePageCardBig(iconPath: 'assets/icons/icons8-planner-100.png', description: "Peer Health Events", press: (){
                           loadUrl(_eventSiteURL);},
                         ),
-                        HomePageCardBig(iconPath: 'assets/icons/icons8-search-chat-100.png', description: "Mental Health Resources Helper", press: (){
-                          Navigator.pushNamed(context, '/ChatPage');
+                        HomePageCardBig(iconPath: 'assets/icons/icons8-search-chat-100.png', description: "Mental Health Helper", press: (){
+                          showCupertinoModalPopup(context: context, builder: (context) => action);
                         }),
                         HomePageCardBig(iconPath: 'assets/icons/icons8-folded-booklet-100.png', description: 'Pamphlets', press: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => PamphletList()));
@@ -107,5 +119,7 @@ class Homepage extends StatelessWidget {
           ),
         )
     );
+
+
   }
 }

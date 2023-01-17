@@ -20,12 +20,13 @@ class _ChatPageState extends State<ChatPage> {
   List<types.Message> _messages = [];
   final _user = const types.User(id: 'User');
   final _server = const types.User(id: 'Server');
-  String _initialMessage = "Hi! I am a chatbot that can help you find the mental health resources you need in USask. You can ask me anything. Type 'Mental health roadmap' if you want a list of questions that can point you to the resources based on your situation instead.";
+  bool _isInitialMessageAdded = false;
+  String _initialMessage = "Hi! I am a chatbot that can help you find the mental health resources you need in USask. Type a single sentence to ask about the thing you want to know about.";
 
   @override
   Widget build(BuildContext context) {
 
-    _addInitialMessage();
+    _addInitialMessage(_isInitialMessageAdded);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Mental Health Resources Helper"),),
@@ -89,15 +90,20 @@ class _ChatPageState extends State<ChatPage> {
     return response.body;
   }
 
-  void _addInitialMessage() {
+  void _addInitialMessage(bool isInitialMessageAdded) {
 
-    final textMessage = types.TextMessage(
-      author: _server,
-      createdAt: DateTime.now().millisecondsSinceEpoch,
-      id: randomString(),
-      text: _initialMessage,
-    );
+    if (isInitialMessageAdded == false)
+    {
+      final textMessage = types.TextMessage(
+        author: _server,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        id: randomString(),
+        text: _initialMessage,
+      );
 
-    _addMessage(textMessage);
+      _addMessage(textMessage);
+
+      _isInitialMessageAdded = true;
+    }
   }
 }
