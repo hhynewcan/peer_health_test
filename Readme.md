@@ -12,7 +12,9 @@ The contents in this app are curated by USask Student Wellness Centre and Peer H
 
 Installation:
 This is a standard Flutter project for iOS/iPadOS/Android.
-You can run it with a normal Flutter environment from main.dart.
+You can run it with a normal Flutter environment from main.dart, or you can install the apk instead.
+Link to apk: [Demo APK](https://github.com/hhynewcan/peer_health_test/releases/tag/Demo)
+
 
 Artworks:
 All icons with “icons8” in their file names are from icons8.com.
