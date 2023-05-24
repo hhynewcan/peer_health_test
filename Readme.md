@@ -3,7 +3,6 @@ ___
 
 This project intends to provide a mental health resources navigation tool and mobile access to USask Student Wellness Centre and Peer Health content to USask students. Currently, this mobile app includes a navigation tool, pamphlets, social norm quizzes and workbook downloads.
 
-This is still a work in progress.
 
 Credit:
 Currently, all designs and codes are done by Huayi Huang.

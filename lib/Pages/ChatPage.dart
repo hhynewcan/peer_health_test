@@ -3,8 +3,10 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:peer_health_test/main.dart';
 import 'dart:math';
+import 'dart:io' show Platform;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:device_info_plus/device_info_plus.dart';
 
 
 class ChatPage extends StatefulWidget {
@@ -16,7 +18,8 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
 
-  String url = 'http://127.0.0.1:8000/api?query=';
+  String _UrlForOtherPlatform = 'http://10.0.2.2:8000/api?query=';
+  String _UrlForiOS = 'http://127.0.0.1:8000/api?query=';
   List<types.Message> _messages = [];
   final _user = const types.User(id: 'User');
   final _server = const types.User(id: 'Server');
@@ -46,7 +49,7 @@ class _ChatPageState extends State<ChatPage> {
 
     try
     {
-      var data = await fetchData(url + message.text);
+      var data = await fetchData(message.text);
       final responseMessage = types.TextMessage(
         author: _server,
         createdAt: DateTime.now().millisecondsSinceEpoch,
@@ -84,9 +87,16 @@ class _ChatPageState extends State<ChatPage> {
     return base64UrlEncode(values);
   }
 
-  fetchData(String url) async
+  fetchData(String text) async
   {
-    http.Response response = await http.get(Uri.parse(url));
+    http.Response response;
+    if (Platform.isAndroid) {
+      response = await http.get(Uri.parse(_UrlForOtherPlatform + text));
+    }
+    else
+    {
+      response = await http.get(Uri.parse(_UrlForOtherPlatform + text));
+    }
     return response.body;
   }
 

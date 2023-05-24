@@ -5,7 +5,6 @@ import 'package:peer_health_test/Pages/Homepage.dart';
 import 'package:peer_health_test/Pages/HomepageForiPad.dart';
 import '../Constants.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-
 import 'HomePageForWeb.dart';
 
 // The TermsOfServicesAndPrivacyPolicy page
@@ -97,6 +96,12 @@ class _TermsOfServicesAndPrivacyPolicyState extends State<TermsOfServicesAndPriv
   async {
     if (kIsWeb){
       Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) => HomepageForWeb(), transitionDuration: Duration.zero,),);
+    }
+    else if (Platform.isMacOS){
+      Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) => Homepage(), transitionDuration: Duration.zero,),);
+    }
+    else if (Platform.isWindows){
+      Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) => Homepage(), transitionDuration: Duration.zero,),);
     }
     else if (Platform.isAndroid)
     {
